@@ -1,0 +1,43 @@
+/*
+Close
+
+<p>
+Close icon design. Lighter color to leave focus at the content of the corresponding block.
+</p>
+<p>
+Apply the style to a button
+due to https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+</p>
+
+sc-close - standard look
+sc-close:hover - hovered
+sc-close:focus - keyboard focus
+
+markup:
+<div style="float: left">
+  <button class="{$modifiers}">x</button>
+</div>
+
+Styleguide 4.1
+*/
+.sc-close {
+  float: right;
+  font-size: ($font-size-base * 1.5);
+  font-weight: $close-font-weight;
+  line-height: 1;
+  color: $close-color;
+  text-shadow: $close-text-shadow;
+  @include opacity(.2);
+
+  &:hover,
+  &:focus {
+    color: $close-color;
+    text-decoration: none;
+    cursor: pointer;
+    @include opacity(.5);
+  }
+  &:focus {
+    border: solid 2px;
+    border-color: $close-color;
+  }
+}

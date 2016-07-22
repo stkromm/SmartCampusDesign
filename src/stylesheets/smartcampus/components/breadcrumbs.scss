@@ -1,0 +1,37 @@
+// Breadcrumb
+//
+// Breadcrumb styling for ordered lists.
+//
+// markup:
+//<ol class="sc-breadcrumb">
+//<li class="active">Home</li>
+//</ol>
+//<ol class="sc-breadcrumb">
+//<li>Home</li>
+//<li class="active">Library</li>
+//</ol>
+//<ol class="sc-breadcrumb">
+//<li>Home</li>
+//<li>Library</li>
+//<li class="active">Data</li>
+//</ol>
+//
+// Styleguide 3.2
+.sc-breadcrumb {
+  padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+  margin-bottom: $line-height-computed;
+  list-style: none;
+  background-color: $breadcrumb-bg;
+  border-radius: $border-radius-base;
+  > li {
+    display: inline-block;
+    + li:before {
+      content: "#{$breadcrumb-separator}#{"\00a0"}";
+      padding: 0 5px;
+      color: $breadcrumb-color;
+    }
+  }
+  > .active {
+    color: $breadcrumb-active-color;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "smartcampus-ui",
+  "homepage": "https://smartcampus.cm.tm.kit.edu",
+  "authors": [
+    "Steffen Kromm"
+  ],
+  "description": "smartcampus-ui is the core library used for the UI-Design of SmartCampus Service-Group. It's based on bootstrap-sass, a Sass-powered version of Bootstrap 3.",
+  "moduleType": "globals",
+  "main": [
+    "dist/smartcampus.scss",
+    "assets/javascripts/bootstrap.js"
+  ],
+  "keywords": [
+    "smartcampus"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "package.json",
+    "src",
+    "styleguide",
+    "README.md",
+    "overview.md",
+    ".gitignore",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1 - 2"
+  },
+  "version": "0.0.1"
+}

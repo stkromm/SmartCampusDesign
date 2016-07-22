@@ -1,0 +1,67 @@
+@import "smartcampus/utility/normalize";
+@import "smartcampus/mixins";
+@import "smartcampus/utility/utilities";
+// Color and Typography
+//
+// Documents the used colors, fonts and text sizes.
+//
+// Styleguide 1.
+@import "smartcampus/utility/variables";
+@import "smartcampus/utility/glyphicons";
+@import "smartcampus/utility/scaffolding";
+@import "smartcampus/utility/responsive-embed";
+
+* {
+  font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+// Layout
+//
+// Structure and layout controls.
+//
+// Styleguide 2.
+@import "smartcampus/structure/grid";
+@import "smartcampus/structure/tables";
+@import "smartcampus/structure/wells";
+@import "smartcampus/structure/labels";
+@import "smartcampus/structure/input-groups";
+@import "smartcampus/structure/navs";
+@import "smartcampus/structure/media";
+@import "smartcampus/structure/list-group";
+@import "smartcampus/structure/panels";
+@import "smartcampus/structure/tooltip";
+// Components
+//
+// Control elemnts
+//
+// Styleguide 3.
+@import "smartcampus/components/spinner";
+@import "smartcampus/components/buttons";
+@import "smartcampus/components/dropdowns";
+@import "smartcampus/components/navbar";
+@import "smartcampus/components/breadcrumbs";
+@import "smartcampus/components/pagination";
+@import "smartcampus/components/alerts";
+@import "smartcampus/components/progress-bars";
+@import "smartcampus/components/thumbnails";
+@import "smartcampus/components/modals";
+@import "smartcampus/components/popovers";
+// Scaffolding
+//
+// Utility elements and classes and standard html element stylings
+//
+// Styleguide 4.
+@import "smartcampus/utility/close";
+@import "smartcampus/utility/type";
+@import "smartcampus/utility/forms";
+@import "smartcampus/utility/responsive-utilities";
+// Animations
+//
+// Animations
+//
+// Styleguide 5.
+@import "smartcampus/component-animations";
+// Angular Directives
+//
+// Angular Directives
+//
+// Styleguide 6.
