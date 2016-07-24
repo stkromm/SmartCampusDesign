@@ -1,12 +1,15 @@
+<!-- SmartCampus Styleguide Startpage-->
 # SmartCampus styleguide
 
 ## C&M
 ## SmartCampus Project
-## About
+## About SC5
 
 This styleguide is generated using SC5 styleguide generator. Styleguide
 generator aims to decrease time spent on developing living styleguides and
 support styleguide driven development workflows.
+
+https://bitbucket.org/SC5/styleguide and #styleguide @ SC5 Slack
 
 ### KSS
 
@@ -35,21 +38,3 @@ Styleguide generator is largely based on KSS and kss-node projects.
     // <button class="button {$modifiers}">Click me!</button>
     //
     // Styleguide 3.1
-
-#### Improvements over kss-node
-* Fancy looking default template based on Angular.js
-* Search functionality
-* Support for SASS variables
-* GitHub flavored Markdown for Overview
-* In browser variable editing (experimental)
-* Helper classes (for displaying colors etc.)
-* A server for hosting the styleguide and saving edited variables
-
-### More info about Styleguide Generator
-
-https://bitbucket.org/SC5/styleguide and #styleguide @ SC5 Slack
-
-## Overview page
-
-You can create an Overview page for your styleguide using Markdown,
-check docs for more info.

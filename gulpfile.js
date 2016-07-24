@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var styleguide = require('sc5-styleguide');
-var sass = require('gulp-sass');
+var concat = require('gulp-concat');
+
 var outputPath = 'styleguide';
 
 gulp.task('styleguide:generate', function () {
@@ -27,17 +28,15 @@ gulp.task('styleguide:applystyles', function () {
         .pipe(gulp.dest(outputPath));
 });
 
+gulp.task('styleguide', ['styleguide:generate', 'styleguide:applystyles']);
+
 gulp.task('watch', ['styleguide'], function () {
-    // Start watching changes and update styleguide whenever changes are detected
     // Styleguide automatically detects existing server instance
     gulp.watch(['*.scss'], ['styleguide']);
 });
 
-gulp.task('styleguide', ['styleguide:generate', 'styleguide:applystyles']);
 
-var concat = require('gulp-concat');
-
-gulp.task('dist', function () {
+gulp.task('build', function () {
     gulp.src(['src/javascripts/components/*.js'])
         .pipe(concat('smartcampus-ui.js'))
         .pipe(gulp.dest('dist/'));
