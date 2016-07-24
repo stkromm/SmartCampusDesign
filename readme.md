@@ -1,5 +1,5 @@
 # Bootstrap for Sass
-[![Bower Version](https://badge.fury.io/bo/bootstrap-sass.svg)](http://badge.fury.io/bo/smartcampus-ui)
+[![Bower Version](https://badge.fury.io/bo/smartcampus-ui.svg)](http://badge.fury.io/bo/smartcampus-ui)
 
 `bootstrap-sass` is a Sass-powered version of [Bootstrap](https://github.com/twbs/bootstrap) 3, ready to drop right into your Sass powered applications.
 
