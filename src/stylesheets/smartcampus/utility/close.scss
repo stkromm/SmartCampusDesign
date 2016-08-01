@@ -11,11 +11,10 @@ due to https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 
 sc-close - standard look
 sc-close:hover - hovered
-sc-close:focus - keyboard focus
 
 markup:
 <div style="float: left">
-  <button class="{$modifiers}">x</button>
+  <button class="{$modifiers}">&times;</button>
 </div>
 
 Styleguide 4.1
@@ -35,9 +34,5 @@ Styleguide 4.1
     text-decoration: none;
     cursor: pointer;
     @include opacity(.5);
-  }
-  &:focus {
-    border: solid 2px;
-    border-color: $close-color;
   }
 }

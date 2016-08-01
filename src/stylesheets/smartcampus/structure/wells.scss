@@ -1,11 +1,13 @@
-// Well
-//
-// Highlighted section block
-//
-// markup:
-// <div class="sc-well">Example of a well</div>
-//
-// Styleguide 2.3
+/*
+Well
+
+Highlighted section block
+
+markup:
+<div class="sc-well">Example of a well</div>
+
+Styleguide 2.3
+*/
 .sc-well {
   min-height: 20px;
   padding: 19px;
@@ -14,8 +16,4 @@
   border: 1px solid $well-border;
   border-radius: $border-radius-base;
   @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .05));
-  blockquote {
-    border-color: #ddd;
-    border-color: rgba(0, 0, 0, .15);
-  }
 }

@@ -1,11 +1,14 @@
-// Label
-//
-// SmartCampus label
-//
-// markup:
-// <div class="label">Example Label</div>
-//
-// Styleguide 2.2
+/*
+Label
+
+SmartCampus label
+
+markup:
+<span class="sc-label">Example Label</span>
+
+Styleguide 2.2
+*/
+
 .sc-label {
   display: inline;
   padding: .2em .6em .3em;
@@ -17,55 +20,23 @@
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: .25em;
-
-  // [converter] extracted a& to a.label
-
-  // Empty labels collapse automatically (not available in IE8)
-  &:empty {
+  &:empty { // Collapse empty labels
     display: none;
   }
 
-  // Quick fix for labels in buttons
-  .sc-button & {
-    position: relative;
-    top: -1px;
+  // Add hover effects only for links (== clickable labels)
+  a & {
+    &:hover,
+    &:focus {
+      color: $label-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: darken(white, 10%);
+    }
   }
 }
-
-// Add hover effects, but only for links
-a.sc-label {
-  &:hover,
-  &:focus {
-    color: $label-link-hover-color;
-    text-decoration: none;
-    cursor: pointer;
-  }
-}
-
-// Colors
-// Contextual variations (linked labels get darker on :hover)
-
-.label-default {
-  @include label-variant($label-default-bg);
-}
-
-.label-primary {
-  @include label-variant($label-primary-bg);
-}
-
-.label-success {
-  @include label-variant($label-success-bg);
-}
-
-.label-info {
-  @include label-variant($label-info-bg);
-}
-
-.label-warning {
-  @include label-variant($label-warning-bg);
-}
-
-.label-danger {
-  @include label-variant($label-danger-bg);
-}
-// styleguide:ignore:end

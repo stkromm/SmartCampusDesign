@@ -1,94 +1,82 @@
-/* ========================================================================
- * Bootstrap: alert.js v3.3.6
- * http://getbootstrap.com/javascript/#alerts
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
 +function ($) {
-  'use strict';
+    'use strict';
+    log("TEST");
+    // ALERT CLASS DEFINITION
+    // ======================
 
-  // ALERT CLASS DEFINITION
-  // ======================
+    var dismissSelector = '[data-dismiss="alert"]';
+    var Alert = element => $(element).on('click', dismissSelector, this.close);
 
-  var dismiss = '[data-dismiss="alert"]'
-  var Alert   = function (el) {
-    $(el).on('click', dismiss, this.close)
-  }
+    Alert.TRANSITION_DURATION = 150;
+    /**
+     * Defines the functionality of the closing icon of the alert message (if existing).
+     * @param element
+     */
+    Alert.prototype.close = element => {
+        alert("TEST");
+        var $this = $(this);
+        var selector = $this.attr('data-target');
 
-  Alert.VERSION = '3.3.6'
+        if (!selector) {
+            selector = $this.attr('href');
+        }
 
-  Alert.TRANSITION_DURATION = 150
+        var $parent = $(selector);
 
-  Alert.prototype.close = function (e) {
-    var $this    = $(this)
-    var selector = $this.attr('data-target')
+        if (element) {
+            element.preventDefault();
+        }
 
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+        if (!$parent.length) {
+            $parent = $this.closest('.sc-alert')
+        }
+
+        $parent.trigger(element = $.Event('close.bs.alert'));
+
+        if (element.isDefaultPrevented()) return;
+
+        $parent.removeClass('in');
+
+        var removeElement = () =>
+            $parent.detach().trigger('closed.bs.alert').remove();
+
+        return $.support.transition && $parent.hasClass('fade') ?
+            $parent
+                .one('bsTransitionEnd', removeElement)
+                .emulateTransitionEnd(Alert.TRANSITION_DURATION) :
+            removeElement()
+    };
+
+
+    // ALERT PLUGIN DEFINITION
+    // =======================
+
+    function Plugin(option) {
+        return this.each = () => {
+            var $this = $(this);
+            var data = $this.data('bs.alert');
+
+            if (!data) {
+                $this.data('bs.alert', (data = new Alert(this)));
+            }
+            if (typeof option == 'string') {
+                data[option].call($this)
+            }
+        }
     }
 
-    var $parent = $(selector)
+    var oldAlert = $.prototype.alert;
 
-    if (e) e.preventDefault()
-
-    if (!$parent.length) {
-      $parent = $this.closest('.alert')
-    }
-
-    $parent.trigger(e = $.Event('close.bs.alert'))
-
-    if (e.isDefaultPrevented()) return
-
-    $parent.removeClass('in')
-
-    function removeElement() {
-      // detach from parent, fire event then clean up data
-      $parent.detach().trigger('closed.bs.alert').remove()
-    }
-
-    $.support.transition && $parent.hasClass('fade') ?
-      $parent
-        .one('bsTransitionEnd', removeElement)
-        .emulateTransitionEnd(Alert.TRANSITION_DURATION) :
-      removeElement()
-  }
+    $.prototype.alert = Plugin;
+    $.prototype.alert.Constructor = Alert;
+    $.prototype.alert.noConflict = () => {
+        $.prototype.alert = oldAlert;
+        return this
+    };
 
 
-  // ALERT PLUGIN DEFINITION
-  // =======================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this = $(this)
-      var data  = $this.data('bs.alert')
-
-      if (!data) $this.data('bs.alert', (data = new Alert(this)))
-      if (typeof option == 'string') data[option].call($this)
-    })
-  }
-
-  var old = $.fn.alert
-
-  $.fn.alert             = Plugin
-  $.fn.alert.Constructor = Alert
-
-
-  // ALERT NO CONFLICT
-  // =================
-
-  $.fn.alert.noConflict = function () {
-    $.fn.alert = old
-    return this
-  }
-
-
-  // ALERT DATA-API
-  // ==============
-
-  $(document).on('click.bs.alert.data-api', dismiss, Alert.prototype.close)
+    // ALERT DATA-API
+    // ==============
+    $(document).on('click.bs.alert.data-api', dismissSelector, Alert.prototype.close);
 
 }(jQuery);

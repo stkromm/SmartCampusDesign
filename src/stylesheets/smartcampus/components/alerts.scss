@@ -6,7 +6,7 @@ This section describes all alert messages available.
 markup:
 <div class="sc-alert alert-success">
 <strong>Success!</strong> Indicates a successful or positive action.
-<a href="#" class="sc-close" data-dismiss="sc-alert" aria-label="sc-close">&times;</a>
+<a href="" class="sc-close" data-dismiss="alert" aria-label="Close">&times;</a>
 </div>
 
 Styleguide 3.1
@@ -37,16 +37,6 @@ Styleguide 3.1
 
   > p + p {
     margin-top: 5px;
-  }
-}
-
-.sc-alert-dismissible {
-  padding-right: ($alert-padding + 20);
-  .close {
-    position: relative;
-    top: -2px;
-    right: -21px;
-    color: inherit;
   }
 }
 
