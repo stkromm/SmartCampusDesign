@@ -39,7 +39,18 @@ gulp.task('watch', ['styleguide'], function () {
 
 
 gulp.task('build', function () {
-    gulp.src(['src/javascripts/components/tooltip.js','src/javascripts/components/*.js'])
+    gulp.src(['src/javascripts/components/tooltip.js',
+        'src/javascripts/components/collapse.js',
+        'src/javascripts/components/affix.js',
+        'src/javascripts/components/alert.js',
+        'src/javascripts/components/button.js',
+        'src/javascripts/components/modal.js',
+        'src/javascripts/components/transition.js',
+        'src/javascripts/components/tab.js',
+        'src/javascripts/components/scrollspy.js',
+        'src/javascripts/components/popover.js',
+        'src/javascripts/components/dropdown.js',
+    ])
 
         .pipe(babel())
         .pipe(concat('smartcampus-ui.js'))

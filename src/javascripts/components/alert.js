@@ -13,7 +13,6 @@
      * @param element
      */
     Alert.prototype.close = element => {
-        alert("TEST");
         var $this = $(this);
         var selector = $this.attr('data-target');
 

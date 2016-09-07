@@ -9,6 +9,14 @@
 //
 // Styleguide 1.3
 @at-root {
+  @function twbs-font-path($path) {
+    // do something like following
+    // from "path/to/font.ext#suffix" to "<%- asset_path(path/to/font.ext)) + #suffix %>"
+    // from "path/to/font.ext?#suffix" to "<%- asset_path(path/to/font.ext)) + ?#suffix %>"
+    // or from "path/to/font.ext" just "<%- asset_path(path/to/font.ext)) %>"
+    @return "<%- asset_path("#{$path}".replace(/[#?].*$/, '')) + "#{$path}".replace(/(^[^#?]*)([#?]?.*$)/, '$2') %>";
+  }
+
   // Import the fonts
   @font-face {
     font-family: 'Glyphicons Halflings';

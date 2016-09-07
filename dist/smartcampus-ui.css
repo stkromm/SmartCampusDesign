@@ -300,11 +300,22 @@ Generate semantic grid columns with these mixins.
   margin-left: auto;
   margin-right: auto; }
 
+.pull-center {
+  text-align: center !important;
+  vertical-align: middle !important; }
+
 .pull-right {
   float: right !important; }
 
 .pull-left {
   float: left !important; }
+
+.fill-parent {
+  width: 100%;
+  height: 100%; }
+
+.clickable {
+  cursor: pointer; }
 
 .hidden {
   display: none !important; }
@@ -2280,8 +2291,7 @@ Styleguide 2.3
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); }
 
 /*
 Label
@@ -2587,7 +2597,8 @@ Styleguide 2.2
   padding: 10px 15px;
   margin-bottom: -1px;
   background-color: #fff;
-  border: 1px solid #ddd; }
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19); }
   .list-group-item:first-child {
     border-top-right-radius: 4px;
     border-top-left-radius: 4px; }
@@ -3330,62 +3341,62 @@ a.sc-button.disabled, fieldset[disabled] a.sc-button {
   pointer-events: none; }
 
 .sc-button-primary {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc; }
-  .sc-button-primary:focus, .sc-button-primary.focus {
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #8c8c8c; }
-  .sc-button-primary:hover {
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #adadad; }
-  .sc-button-primary:active, .sc-button-primary.active, .open > .sc-button-primary.sc-dropdown-toggle {
-    color: #333;
-    background-color: #e6e6e6;
-    border-color: #adadad; }
-    .sc-button-primary:active:hover, .sc-button-primary:active:focus, .sc-button-primary:active.focus, .sc-button-primary.active:hover, .sc-button-primary.active:focus, .sc-button-primary.active.focus, .open > .sc-button-primary.sc-dropdown-toggle:hover, .open > .sc-button-primary.sc-dropdown-toggle:focus, .open > .sc-button-primary.sc-dropdown-toggle.focus {
-      color: #333;
-      background-color: #d4d4d4;
-      border-color: #8c8c8c; }
-  .sc-button-primary:active, .sc-button-primary.active, .open > .sc-button-primary.sc-dropdown-toggle {
-    background-image: none; }
-  .sc-button-primary.disabled:hover, .sc-button-primary.disabled:focus, .sc-button-primary.disabled.focus, .sc-button-primary[disabled]:hover, .sc-button-primary[disabled]:focus, .sc-button-primary[disabled].focus, fieldset[disabled] .sc-button-primary:hover, fieldset[disabled] .sc-button-primary:focus, fieldset[disabled] .sc-button-primary.focus {
-    background-color: #fff;
-    border-color: #ccc; }
-  .sc-button-primary .badge {
-    color: #fff;
-    background-color: #333; }
-
-.sc-button-secondary {
   color: #fff;
   background-color: #428bca;
   border-color: #357ebd; }
-  .sc-button-secondary:focus, .sc-button-secondary.focus {
+  .sc-button-primary:focus, .sc-button-primary.focus {
     color: #fff;
     background-color: #3071a9;
     border-color: #193c5a; }
-  .sc-button-secondary:hover {
+  .sc-button-primary:hover {
     color: #fff;
     background-color: #3071a9;
     border-color: #285e8e; }
-  .sc-button-secondary:active, .sc-button-secondary.active, .open > .sc-button-secondary.sc-dropdown-toggle {
+  .sc-button-primary:active, .sc-button-primary.active, .open > .sc-button-primary.sc-dropdown-toggle {
     color: #fff;
     background-color: #3071a9;
     border-color: #285e8e; }
-    .sc-button-secondary:active:hover, .sc-button-secondary:active:focus, .sc-button-secondary:active.focus, .sc-button-secondary.active:hover, .sc-button-secondary.active:focus, .sc-button-secondary.active.focus, .open > .sc-button-secondary.sc-dropdown-toggle:hover, .open > .sc-button-secondary.sc-dropdown-toggle:focus, .open > .sc-button-secondary.sc-dropdown-toggle.focus {
+    .sc-button-primary:active:hover, .sc-button-primary:active:focus, .sc-button-primary:active.focus, .sc-button-primary.active:hover, .sc-button-primary.active:focus, .sc-button-primary.active.focus, .open > .sc-button-primary.sc-dropdown-toggle:hover, .open > .sc-button-primary.sc-dropdown-toggle:focus, .open > .sc-button-primary.sc-dropdown-toggle.focus {
       color: #fff;
       background-color: #285e8e;
       border-color: #193c5a; }
+  .sc-button-primary:active, .sc-button-primary.active, .open > .sc-button-primary.sc-dropdown-toggle {
+    background-image: none; }
+  .sc-button-primary.disabled:hover, .sc-button-primary.disabled:focus, .sc-button-primary.disabled.focus, .sc-button-primary[disabled]:hover, .sc-button-primary[disabled]:focus, .sc-button-primary[disabled].focus, fieldset[disabled] .sc-button-primary:hover, fieldset[disabled] .sc-button-primary:focus, fieldset[disabled] .sc-button-primary.focus {
+    background-color: #428bca;
+    border-color: #357ebd; }
+  .sc-button-primary .badge {
+    color: #428bca;
+    background-color: #fff; }
+
+.sc-button-secondary {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc; }
+  .sc-button-secondary:focus, .sc-button-secondary.focus {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c; }
+  .sc-button-secondary:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+  .sc-button-secondary:active, .sc-button-secondary.active, .open > .sc-button-secondary.sc-dropdown-toggle {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad; }
+    .sc-button-secondary:active:hover, .sc-button-secondary:active:focus, .sc-button-secondary:active.focus, .sc-button-secondary.active:hover, .sc-button-secondary.active:focus, .sc-button-secondary.active.focus, .open > .sc-button-secondary.sc-dropdown-toggle:hover, .open > .sc-button-secondary.sc-dropdown-toggle:focus, .open > .sc-button-secondary.sc-dropdown-toggle.focus {
+      color: #333;
+      background-color: #d4d4d4;
+      border-color: #8c8c8c; }
   .sc-button-secondary:active, .sc-button-secondary.active, .open > .sc-button-secondary.sc-dropdown-toggle {
     background-image: none; }
   .sc-button-secondary.disabled:hover, .sc-button-secondary.disabled:focus, .sc-button-secondary.disabled.focus, .sc-button-secondary[disabled]:hover, .sc-button-secondary[disabled]:focus, .sc-button-secondary[disabled].focus, fieldset[disabled] .sc-button-secondary:hover, fieldset[disabled] .sc-button-secondary:focus, fieldset[disabled] .sc-button-secondary.focus {
-    background-color: #428bca;
-    border-color: #357ebd; }
+    background-color: #fff;
+    border-color: #ccc; }
   .sc-button-secondary .badge {
-    color: #428bca;
-    background-color: #fff; }
+    color: #fff;
+    background-color: #333; }
 
 .sc-button-link {
   color: #428bca;
