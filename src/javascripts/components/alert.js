@@ -1,6 +1,5 @@
 +function ($) {
     'use strict';
-    log("TEST");
     // ALERT CLASS DEFINITION
     // ======================
 
