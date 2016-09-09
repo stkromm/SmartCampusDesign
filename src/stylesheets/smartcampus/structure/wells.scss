@@ -8,6 +8,10 @@ markup:
 
 Styleguide 2.3
 */
+
+$well-bg: #f5f5f5 !default;
+$well-border: darken($well-bg, 7%) !default;
+
 .sc-well {
   min-height: 20px;
   padding: 19px;
