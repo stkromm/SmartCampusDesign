@@ -317,12 +317,15 @@ Generate semantic grid columns with these mixins.
 .clickable {
   cursor: pointer; }
 
+/* uncss:ignore */
 .hidden {
   display: none !important; }
 
+/* uncss:ignore */
 .show {
   display: block !important; }
 
+/* uncss:ignore */
 .invisible {
   visibility: hidden; }
 
@@ -332,6 +335,33 @@ Generate semantic grid columns with these mixins.
   text-shadow: none;
   background-color: transparent;
   border: 0; }
+
+/*
+Only display content to screen readers
+See: http://a11yproject.com/posts/how-to-hide-content/
+*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+/*
+Use in conjunction with .sr-only to only display content when it's focused.
+Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+Credit: HTML5 Boilerplate
+*/
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto; }
 
 .sc-styleguide-color {
   font-family: Roboto, sans-serif;
@@ -350,8 +380,8 @@ Scaffolding
 /* Link hover decoration. */
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("../../assets/fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../../assets/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../../assets/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../../assets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;
@@ -2587,11 +2617,11 @@ Styleguide 2.2
   padding-left: 0;
   list-style: none; }
 
-.list-group {
+.list-group, .static-sidebar {
   margin-bottom: 20px;
   padding-left: 0; }
 
-.list-group-item {
+.list-group-item, .sidebar-group-element {
   position: relative;
   display: block;
   padding: 10px 15px;
@@ -2599,53 +2629,77 @@ Styleguide 2.2
   background-color: #fff;
   border: 1px solid #ddd;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19); }
-  .list-group-item:first-child {
+  .list-group-item:first-child, .sidebar-group-element:first-child {
     border-top-right-radius: 4px;
     border-top-left-radius: 4px; }
-  .list-group-item:last-child {
+  .list-group-item:last-child, .sidebar-group-element:last-child {
     margin-bottom: 0;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px; }
 
-a.list-group-item,
-button.list-group-item {
+a.list-group-item, a.sidebar-group-element,
+button.list-group-item,
+button.sidebar-group-element {
   color: #555; }
-  a.list-group-item .list-group-item-heading,
-  button.list-group-item .list-group-item-heading {
+  a.list-group-item .list-group-item-heading, a.sidebar-group-element .list-group-item-heading, a.list-group-item .sidebar-group-heading, a.sidebar-group-element .sidebar-group-heading,
+  button.list-group-item .list-group-item-heading,
+  button.sidebar-group-element .list-group-item-heading,
+  button.list-group-item .sidebar-group-heading,
+  button.sidebar-group-element .sidebar-group-heading {
     color: #333; }
-  a.list-group-item:hover, a.list-group-item:focus,
+  a.list-group-item:hover, a.sidebar-group-element:hover, a.list-group-item:focus, a.sidebar-group-element:focus,
   button.list-group-item:hover,
-  button.list-group-item:focus {
+  button.sidebar-group-element:hover,
+  button.list-group-item:focus,
+  button.sidebar-group-element:focus {
     text-decoration: none;
     color: #555;
     background-color: #f5f5f5; }
 
-button.list-group-item {
+button.list-group-item, button.sidebar-group-element {
   width: 100%;
   text-align: left; }
 
-.list-group-item.disabled, .list-group-item.disabled:hover, .list-group-item.disabled:focus {
+.list-group-item.disabled, .disabled.sidebar-group-element, .list-group-item.disabled:hover, .disabled.sidebar-group-element:hover, .list-group-item.disabled:focus, .disabled.sidebar-group-element:focus {
   background-color: #eeeeee;
   color: #777777;
   cursor: not-allowed; }
-  .list-group-item.disabled .list-group-item-heading, .list-group-item.disabled:hover .list-group-item-heading, .list-group-item.disabled:focus .list-group-item-heading {
+  .list-group-item.disabled .list-group-item-heading, .disabled.sidebar-group-element .list-group-item-heading, .list-group-item.disabled .sidebar-group-heading, .disabled.sidebar-group-element .sidebar-group-heading, .list-group-item.disabled:hover .list-group-item-heading, .disabled.sidebar-group-element:hover .list-group-item-heading, .list-group-item.disabled:hover .sidebar-group-heading, .disabled.sidebar-group-element:hover .sidebar-group-heading, .list-group-item.disabled:focus .list-group-item-heading, .disabled.sidebar-group-element:focus .list-group-item-heading, .list-group-item.disabled:focus .sidebar-group-heading, .disabled.sidebar-group-element:focus .sidebar-group-heading {
     color: inherit; }
-  .list-group-item.disabled .list-group-item-text, .list-group-item.disabled:hover .list-group-item-text, .list-group-item.disabled:focus .list-group-item-text {
+  .list-group-item.disabled .list-group-item-text, .disabled.sidebar-group-element .list-group-item-text, .list-group-item.disabled:hover .list-group-item-text, .disabled.sidebar-group-element:hover .list-group-item-text, .list-group-item.disabled:focus .list-group-item-text, .disabled.sidebar-group-element:focus .list-group-item-text {
     color: #777777; }
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+.list-group-item.active, .active.sidebar-group-element, .list-group-item.active:hover, .active.sidebar-group-element:hover, .list-group-item.active:focus, .active.sidebar-group-element:focus {
   z-index: 2;
   color: #fff;
   background-color: #428bca;
   border-color: #428bca; }
-  .list-group-item.active .list-group-item-heading,
+  .list-group-item.active .list-group-item-heading, .active.sidebar-group-element .list-group-item-heading, .list-group-item.active .sidebar-group-heading, .active.sidebar-group-element .sidebar-group-heading,
   .list-group-item.active .list-group-item-heading > small,
-  .list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,
+  .active.sidebar-group-element .list-group-item-heading > small,
+  .list-group-item.active .sidebar-group-heading > small,
+  .active.sidebar-group-element .sidebar-group-heading > small,
+  .list-group-item.active .list-group-item-heading > .small,
+  .active.sidebar-group-element .list-group-item-heading > .small,
+  .list-group-item.active .sidebar-group-heading > .small,
+  .active.sidebar-group-element .sidebar-group-heading > .small, .list-group-item.active:hover .list-group-item-heading, .active.sidebar-group-element:hover .list-group-item-heading, .list-group-item.active:hover .sidebar-group-heading, .active.sidebar-group-element:hover .sidebar-group-heading,
   .list-group-item.active:hover .list-group-item-heading > small,
-  .list-group-item.active:hover .list-group-item-heading > .small, .list-group-item.active:focus .list-group-item-heading,
+  .active.sidebar-group-element:hover .list-group-item-heading > small,
+  .list-group-item.active:hover .sidebar-group-heading > small,
+  .active.sidebar-group-element:hover .sidebar-group-heading > small,
+  .list-group-item.active:hover .list-group-item-heading > .small,
+  .active.sidebar-group-element:hover .list-group-item-heading > .small,
+  .list-group-item.active:hover .sidebar-group-heading > .small,
+  .active.sidebar-group-element:hover .sidebar-group-heading > .small, .list-group-item.active:focus .list-group-item-heading, .active.sidebar-group-element:focus .list-group-item-heading, .list-group-item.active:focus .sidebar-group-heading, .active.sidebar-group-element:focus .sidebar-group-heading,
   .list-group-item.active:focus .list-group-item-heading > small,
-  .list-group-item.active:focus .list-group-item-heading > .small {
+  .active.sidebar-group-element:focus .list-group-item-heading > small,
+  .list-group-item.active:focus .sidebar-group-heading > small,
+  .active.sidebar-group-element:focus .sidebar-group-heading > small,
+  .list-group-item.active:focus .list-group-item-heading > .small,
+  .active.sidebar-group-element:focus .list-group-item-heading > .small,
+  .list-group-item.active:focus .sidebar-group-heading > .small,
+  .active.sidebar-group-element:focus .sidebar-group-heading > .small {
     color: inherit; }
-  .list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
+  .list-group-item.active .list-group-item-text, .active.sidebar-group-element .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .active.sidebar-group-element:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text, .active.sidebar-group-element:focus .list-group-item-text {
     color: #e1edf7; }
 
 .list-group-item-success {
@@ -2655,8 +2709,9 @@ button.list-group-item {
 a.list-group-item-success,
 button.list-group-item-success {
   color: #3c763d; }
-  a.list-group-item-success .list-group-item-heading,
-  button.list-group-item-success .list-group-item-heading {
+  a.list-group-item-success .list-group-item-heading, a.list-group-item-success .sidebar-group-heading,
+  button.list-group-item-success .list-group-item-heading,
+  button.list-group-item-success .sidebar-group-heading {
     color: inherit; }
   a.list-group-item-success:hover, a.list-group-item-success:focus,
   button.list-group-item-success:hover,
@@ -2678,8 +2733,9 @@ button.list-group-item-success {
 a.list-group-item-info,
 button.list-group-item-info {
   color: #31708f; }
-  a.list-group-item-info .list-group-item-heading,
-  button.list-group-item-info .list-group-item-heading {
+  a.list-group-item-info .list-group-item-heading, a.list-group-item-info .sidebar-group-heading,
+  button.list-group-item-info .list-group-item-heading,
+  button.list-group-item-info .sidebar-group-heading {
     color: inherit; }
   a.list-group-item-info:hover, a.list-group-item-info:focus,
   button.list-group-item-info:hover,
@@ -2701,8 +2757,9 @@ button.list-group-item-info {
 a.list-group-item-warning,
 button.list-group-item-warning {
   color: #8a6d3b; }
-  a.list-group-item-warning .list-group-item-heading,
-  button.list-group-item-warning .list-group-item-heading {
+  a.list-group-item-warning .list-group-item-heading, a.list-group-item-warning .sidebar-group-heading,
+  button.list-group-item-warning .list-group-item-heading,
+  button.list-group-item-warning .sidebar-group-heading {
     color: inherit; }
   a.list-group-item-warning:hover, a.list-group-item-warning:focus,
   button.list-group-item-warning:hover,
@@ -2724,8 +2781,9 @@ button.list-group-item-warning {
 a.list-group-item-danger,
 button.list-group-item-danger {
   color: #a94442; }
-  a.list-group-item-danger .list-group-item-heading,
-  button.list-group-item-danger .list-group-item-heading {
+  a.list-group-item-danger .list-group-item-heading, a.list-group-item-danger .sidebar-group-heading,
+  button.list-group-item-danger .list-group-item-heading,
+  button.list-group-item-danger .sidebar-group-heading {
     color: inherit; }
   a.list-group-item-danger:hover, a.list-group-item-danger:focus,
   button.list-group-item-danger:hover,
@@ -2740,13 +2798,19 @@ button.list-group-item-danger {
     background-color: #a94442;
     border-color: #a94442; }
 
-.list-group-item-heading {
+.list-group-item-heading, .sidebar-group-heading {
   margin-top: 0;
   margin-bottom: 5px; }
 
 .list-group-item-text {
   margin-bottom: 0;
   line-height: 1.3; }
+
+.static-sidebar {
+  float: left;
+  position: fixed;
+  height: 100%;
+  padding: 5px; }
 
 .panel {
   margin-bottom: 20px;
@@ -2791,31 +2855,41 @@ button.list-group-item-danger {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px; }
 
-.panel > .list-group,
-.panel > .panel-collapse > .list-group {
+.panel > .list-group, .panel > .static-sidebar,
+.panel > .panel-collapse > .list-group,
+.panel > .panel-collapse > .static-sidebar {
   margin-bottom: 0; }
-  .panel > .list-group .list-group-item,
-  .panel > .panel-collapse > .list-group .list-group-item {
+  .panel > .list-group .list-group-item, .panel > .static-sidebar .list-group-item, .panel > .list-group .sidebar-group-element, .panel > .static-sidebar .sidebar-group-element,
+  .panel > .panel-collapse > .list-group .list-group-item,
+  .panel > .panel-collapse > .static-sidebar .list-group-item,
+  .panel > .panel-collapse > .list-group .sidebar-group-element,
+  .panel > .panel-collapse > .static-sidebar .sidebar-group-element {
     border-width: 1px 0;
     border-radius: 0; }
-  .panel > .list-group:first-child .list-group-item:first-child,
-  .panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
+  .panel > .list-group:first-child .list-group-item:first-child, .panel > .static-sidebar:first-child .list-group-item:first-child, .panel > .list-group:first-child .sidebar-group-element:first-child, .panel > .static-sidebar:first-child .sidebar-group-element:first-child,
+  .panel > .panel-collapse > .list-group:first-child .list-group-item:first-child,
+  .panel > .panel-collapse > .static-sidebar:first-child .list-group-item:first-child,
+  .panel > .panel-collapse > .list-group:first-child .sidebar-group-element:first-child,
+  .panel > .panel-collapse > .static-sidebar:first-child .sidebar-group-element:first-child {
     border-top: 0;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px; }
-  .panel > .list-group:last-child .list-group-item:last-child,
-  .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+  .panel > .list-group:last-child .list-group-item:last-child, .panel > .static-sidebar:last-child .list-group-item:last-child, .panel > .list-group:last-child .sidebar-group-element:last-child, .panel > .static-sidebar:last-child .sidebar-group-element:last-child,
+  .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child,
+  .panel > .panel-collapse > .static-sidebar:last-child .list-group-item:last-child,
+  .panel > .panel-collapse > .list-group:last-child .sidebar-group-element:last-child,
+  .panel > .panel-collapse > .static-sidebar:last-child .sidebar-group-element:last-child {
     border-bottom: 0;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px; }
-.panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
+.panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child, .panel > .panel-heading + .panel-collapse > .static-sidebar .list-group-item:first-child, .panel > .panel-heading + .panel-collapse > .list-group .sidebar-group-element:first-child, .panel > .panel-heading + .panel-collapse > .static-sidebar .sidebar-group-element:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-.panel-heading + .list-group .list-group-item:first-child {
+.panel-heading + .list-group .list-group-item:first-child, .panel-heading + .static-sidebar .list-group-item:first-child, .panel-heading + .list-group .sidebar-group-element:first-child, .panel-heading + .static-sidebar .sidebar-group-element:first-child {
   border-top-width: 0; }
 
-.list-group + .panel-footer {
+.list-group + .panel-footer, .static-sidebar + .panel-footer {
   border-top-width: 0; }
 
 .panel > .table,
@@ -3457,10 +3531,12 @@ input[type="button"].sc-button-block {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent; }
 
+/* uncss:ignore */
 .sc-dropup,
 .sc-dropdown {
   position: relative; }
 
+/* uncss:ignore */
 .sc-dropdown-toggle:focus {
   outline: 0; }
 
@@ -3518,6 +3594,7 @@ input[type="button"].sc-button-block {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   cursor: not-allowed; }
 
+/* uncss:ignore */
 .open > .sc-dropdown-menu {
   display: block; }
 .open > a {
@@ -3574,7 +3651,8 @@ input[type="button"].sc-button-block {
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
-  border: 1px solid transparent; }
+  border: 1px solid transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 15px 0 rgba(0, 0, 0, 0.19); }
   .sc-navbar:before, .sc-navbar:after {
     content: " ";
     display: table; }
@@ -4577,6 +4655,7 @@ markup:
 
 Styleguide 4.1
 */
+/* uncss:ignore */
 .sc-close {
   float: right;
   font-size: 21px;
@@ -4682,6 +4761,12 @@ p {
 small,
 .small {
   font-size: 85%; }
+
+.large {
+  font-size: 36px; }
+
+.medium {
+  font-size: 18px; }
 
 mark,
 .mark {
@@ -5676,25 +5761,34 @@ Generate semantic grid columns with these mixins.
 @media print {
   .hidden-print {
     display: none !important; } }
+/* uncss:ignore */
+.fade
 .sc-fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
   -o-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear; }
+  .fade
   .sc-fade.in {
     opacity: 1; }
 
+/* uncss:ignore */
+.collapse
 .sc-collapse {
   display: none; }
+  .collapse
   .sc-collapse.in {
     display: block; }
 
+/* uncss:ignore */
 tr.sc-collapse.in {
   display: table-row; }
 
+/* uncss:ignore */
 tbody.sc-collapse.in {
   display: table-row-group; }
 
+/* uncss:ignore */
 .collapsing {
   position: relative;
   height: 0;

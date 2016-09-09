@@ -75,7 +75,12 @@ small,
 .small {
   font-size: floor((100% * $font-size-small / $font-size-base));
 }
-
+.large {
+  font-size: $font-size-large * 2;
+}
+.medium {
+  font-size: $font-size-large;
+}
 mark,
 .mark {
   background-color: $state-warning-bg;
