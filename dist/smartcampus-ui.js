@@ -225,7 +225,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         if (prevHoverState == 'out') that.leave(that);
       };
 
-      $.support.transition && this.$tip.hasClass('fade') ? $tip.one('bsTransitionEnd', complete).emulateTransitionEnd(Tooltip.TRANSITION_DURATION) : complete();
+      $.support.transition && this.$tip.hasClass('sc-fade') ? $tip.one('bsTransitionEnd', complete).emulateTransitionEnd(Tooltip.TRANSITION_DURATION) : complete();
     }
   };
 
@@ -825,12 +825,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 +function ($) {
     'use strict';
-
-    var _this = this;
-
-    log("TEST");
     // ALERT CLASS DEFINITION
     // ======================
+
+    var _this = this;
 
     var dismissSelector = '[data-dismiss="alert"]';
     var Alert = function Alert(element) {

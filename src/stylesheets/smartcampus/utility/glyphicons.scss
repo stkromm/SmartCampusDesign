@@ -16,17 +16,17 @@
     // from "path/to/font.ext#suffix" to "<%- asset_path(path/to/font.ext)) + #suffix %>"
     // from "path/to/font.ext?#suffix" to "<%- asset_path(path/to/font.ext)) + ?#suffix %>"
     // or from "path/to/font.ext" just "<%- asset_path(path/to/font.ext)) %>"
-    @return "../../../../assets/fonts/bootstrap/";
+    @return "../../assets/fonts/bootstrap/";
   }
   // Import the fonts
   @font-face {
     font-family: 'Glyphicons Halflings';
-    src: url(if($bootstrap-sass-asset-helper, '../../assets/fonts/bootstrap/glyphicons-halflings-regular.eot', '../../assets/fonts/bootstrap/glyphicons-halflings-regular.eot'));
-    src: url(if($bootstrap-sass-asset-helper, '../../assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix', '#{$icon-font-path}#{$icon-font-name}.eot?#iefix')) format('embedded-opentype'),
-    url(if($bootstrap-sass-asset-helper, '../../assets/fonts/bootstrap/glyphicons-halflings-regular.woff2',  '../../assets/fonts/bootstrap/glyphicons-halflings-regular.woff2')) format('woff2'),
-    url(if($bootstrap-sass-asset-helper, '../../assets/fonts/bootstrap/glyphicons-halflings-regular.woff',  '../../assets/fonts/bootstrap/glyphicons-halflings-regular.woff')) format('woff'),
-    url(if($bootstrap-sass-asset-helper, '../../assets/fonts/bootstrap/glyphicons-halflings-regular.ttf',  '../../assets/fonts/bootstrap/glyphicons-halflings-regular.ttf')) format('truetype'),
-    url(if($bootstrap-sass-asset-helper, '../../assets/fonts/bootstrap/glyphicons-halflings-regular.svg##{$icon-font-svg-id}',  '../../assets/fonts/bootstrap/glyphicons-halflings-regular.svg##{$icon-font-svg-id}')) format('svg');
+    src: url(if($bootstrap-sass-asset-helper, '../assets/fonts/bootstrap/glyphicons-halflings-regular.eot', '../assets/fonts/bootstrap/glyphicons-halflings-regular.eot'));
+    src: url(if($bootstrap-sass-asset-helper, '../assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix', '../assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'),
+    url(if($bootstrap-sass-asset-helper, '../assets/fonts/bootstrap/glyphicons-halflings-regular.woff2',  '../assets/fonts/bootstrap/glyphicons-halflings-regular.woff2')) format('woff2'),
+    url(if($bootstrap-sass-asset-helper, '../assets/fonts/bootstrap/glyphicons-halflings-regular.woff',  '../assets/fonts/bootstrap/glyphicons-halflings-regular.woff')) format('woff'),
+    url(if($bootstrap-sass-asset-helper, '../assets/fonts/bootstrap/glyphicons-halflings-regular.ttf',  '../assets/fonts/bootstrap/glyphicons-halflings-regular.ttf')) format('truetype'),
+    url(if($bootstrap-sass-asset-helper, '../assets/fonts/bootstrap/glyphicons-halflings-regular.svg##{$icon-font-svg-id}',  '../assets/fonts/bootstrap/glyphicons-halflings-regular.svg##{$icon-font-svg-id}')) format('svg');
   }
 }
 

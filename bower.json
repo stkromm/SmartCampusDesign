@@ -5,7 +5,7 @@
     "Steffen Kromm"
   ],
   "description": "smartcampus-ui is the core library used for the UI-Design of SmartCampus Service-Group. It's based on bootstrap-sass, a Sass-powered version of Bootstrap 3.",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "moduleType": "globals",
   "main": [
     "dist/smartcampus.scss",
